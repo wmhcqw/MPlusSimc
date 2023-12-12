@@ -1,0 +1,143 @@
+[gd_scene load_steps=9 format=3 uid="uid://kqu4cng3iqbe"]
+
+[ext_resource type="Texture2D" uid="uid://deuha57muydg4" path="res://resources/icons/黑心林地.webp" id="1_hls11"]
+[ext_resource type="Script" path="res://scripts/select.gd" id="1_nnt7f"]
+[ext_resource type="Texture2D" uid="uid://xbhieh7ud5m4" path="res://resources/icons/阿塔.webp" id="2_s35jc"]
+[ext_resource type="Texture2D" uid="uid://cvbypb0ujg5f2" path="res://resources/icons/庄园.webp" id="3_5l1tm"]
+[ext_resource type="Texture2D" uid="uid://c7pyufs50fvtv" path="res://resources/icons/永茂林地.webp" id="4_rssj1"]
+[ext_resource type="Texture2D" uid="uid://3nqctdj1a8yu" path="res://resources/icons/黑鸦堡垒.webp" id="5_eu27c"]
+[ext_resource type="Texture2D" uid="uid://6fnk8jl442aw" path="res://resources/icons/潮汐王座.webp" id="6_f027q"]
+[ext_resource type="Texture2D" uid="uid://dx7nrsx0idl7m" path="res://resources/icons/永恒黎明.png" id="7_jajp2"]
+
+[node name="Select" type="Node2D"]
+script = ExtResource("1_nnt7f")
+
+[node name="Back" type="Button" parent="."]
+offset_left = 470.0
+offset_top = 570.0
+offset_right = 639.0
+offset_bottom = 625.0
+text = "返回主菜单"
+
+[node name="Blackheart" type="Button" parent="."]
+offset_left = 54.0
+offset_top = 250.0
+offset_right = 294.0
+offset_bottom = 363.0
+
+[node name="TextureRect" type="TextureRect" parent="Blackheart"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 5.0
+offset_right = 235.0
+offset_bottom = 108.0
+texture = ExtResource("1_hls11")
+expand_mode = 1
+
+[node name="Atar" type="Button" parent="."]
+offset_left = 55.0
+offset_top = 55.0
+offset_right = 295.0
+offset_bottom = 168.0
+
+[node name="TextureRect" type="TextureRect" parent="Atar"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 5.0
+offset_right = 235.0
+offset_bottom = 108.0
+texture = ExtResource("2_s35jc")
+expand_mode = 1
+
+[node name="Wayner" type="Button" parent="."]
+offset_left = 435.0
+offset_top = 55.0
+offset_right = 675.0
+offset_bottom = 168.0
+
+[node name="TextureRect" type="TextureRect" parent="Wayner"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 5.0
+offset_right = 235.0
+offset_bottom = 108.0
+texture = ExtResource("3_5l1tm")
+expand_mode = 1
+
+[node name="Everbloom" type="Button" parent="."]
+offset_left = 815.0
+offset_top = 55.0
+offset_right = 1055.0
+offset_bottom = 168.0
+
+[node name="TextureRect" type="TextureRect" parent="Everbloom"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 5.0
+offset_right = 235.0
+offset_bottom = 108.0
+texture = ExtResource("4_rssj1")
+expand_mode = 1
+
+[node name="Hood" type="Button" parent="."]
+offset_left = 435.0
+offset_top = 250.0
+offset_right = 675.0
+offset_bottom = 363.0
+
+[node name="TextureRect" type="TextureRect" parent="Hood"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 5.0
+offset_right = 235.0
+offset_bottom = 108.0
+texture = ExtResource("5_eu27c")
+expand_mode = 1
+
+[node name="Tide" type="Button" parent="."]
+offset_left = 815.0
+offset_top = 250.0
+offset_right = 1055.0
+offset_bottom = 363.0
+
+[node name="TextureRect" type="TextureRect" parent="Tide"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 5.0
+offset_right = 235.0
+offset_bottom = 108.0
+texture = ExtResource("6_f027q")
+expand_mode = 1
+
+[node name="Inf_1" type="Button" parent="."]
+offset_left = 243.0
+offset_top = 425.0
+offset_right = 483.0
+offset_bottom = 538.0
+
+[node name="TextureRect" type="TextureRect" parent="Inf_1"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 5.0
+offset_right = 235.0
+offset_bottom = 108.0
+texture = ExtResource("7_jajp2")
+expand_mode = 1
+
+[node name="Inf_2" type="Button" parent="."]
+offset_left = 627.0
+offset_top = 425.0
+offset_right = 867.0
+offset_bottom = 538.0
+
+[node name="TextureRect" type="TextureRect" parent="Inf_2"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 5.0
+offset_right = 235.0
+offset_bottom = 108.0
+texture = ExtResource("7_jajp2")
+expand_mode = 1
+
+[connection signal="pressed" from="Back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="Atar" to="." method="_on_atar_pressed"]

@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://ch6onsg0w7dpn"]
+
+[ext_resource type="Texture2D" uid="uid://cqpdisgt44ns7" path="res://resources/sprite/tank.png" id="1_6rjue"]
+[ext_resource type="Script" path="res://scripts/tank.gd" id="2_icvx4"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_sher6"]
+radius = 18.0278
+
+[node name="Tank" type="CharacterBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_6rjue")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_sher6")
+script = ExtResource("2_icvx4")

@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://d00nox8hg6777"]
+
+[ext_resource type="Script" path="res://scripts/lazan.gd" id="1_b7v2p"]
+[ext_resource type="PackedScene" uid="uid://fsten6deydnf" path="res://sprite/larzan.tscn" id="2_faf7d"]
+[ext_resource type="PackedScene" uid="uid://474bfe0pmvol" path="res://sprite/wall.tscn" id="3_6ab2t"]
+[ext_resource type="PackedScene" uid="uid://wtxxeuxq3cu0" path="res://sprite/healer.tscn" id="3_174kt"]
+
+[node name="Lazan" type="Node2D"]
+script = ExtResource("1_b7v2p")
+
+[node name="Healer" parent="." instance=ExtResource("3_174kt")]
+position = Vector2(1027, 552)
+collision_layer = 2
+collision_mask = 4
+
+[node name="Wall" parent="." instance=ExtResource("3_6ab2t")]
+position = Vector2(983, 418)
+scale = Vector2(2, 2)
+collision_layer = 255
+collision_mask = 255
+
+[node name="Larzan" parent="." instance=ExtResource("2_faf7d")]
+position = Vector2(937, 438)
+collision_mask = 4
+
+[node name="Wall2" parent="." instance=ExtResource("3_6ab2t")]
+position = Vector2(986, 129)
+scale = Vector2(2, 2)
