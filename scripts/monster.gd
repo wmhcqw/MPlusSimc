@@ -4,6 +4,7 @@ class_name Monster
 
 var speed = 50
 var health = 100
+const MAX_HEALTH = 100
 
 var current_select = self
 var rotations = []
@@ -13,6 +14,7 @@ var cast_intervals = []
 var is_friend = false
 
 var cast_timer = Timer.new()
+var health_bar = ProgressBar.new()
 
 var current_rotations = 0
 var is_casting = false  # is casting spell or not
@@ -28,6 +30,13 @@ func _enter_tree():
 	cast_timer.timeout.connect(_run_rotations)
 	add_child(cast_timer)
 	cast_timer.start(1)
+	
+	health_bar.show_percentage = false
+	health_bar.modulate = Color.RED
+	health_bar.max_value = MAX_HEALTH
+	health_bar.size = Vector2(36, 2)
+	health_bar.position = Vector2(-18, -23)
+	add_child(health_bar)
 	
 	
 func get_movement_vector():
@@ -49,6 +58,8 @@ func _process(_delta):
 	var direction = movement_vector.normalized()
 	velocity = direction * speed
 	move_and_slide()
+	
+	health_bar.value = health
 
 func _run_rotations():
 	cast(rotations[current_rotations])

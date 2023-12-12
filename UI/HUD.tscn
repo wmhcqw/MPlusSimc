@@ -1,3 +1,10 @@
 [gd_scene format=3 uid="uid://drcuhofgu2vb7"]
 
 [node name="HUD" type="Node2D"]
+
+[node name="Label" type="Label" parent="."]
+offset_left = 389.0
+offset_top = 68.0
+offset_right = 640.0
+offset_bottom = 123.0
+text = "Boss Cast Hint"

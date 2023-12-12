@@ -17,6 +17,8 @@ var is_gcd = false
 var in_debuff = false
 var is_friend = true
 
+var health_bar = ProgressBar.new()
+
 var gcd_timer = Timer.new()
 var debuff_timer = Timer.new()
 var cd_timer_1 = Timer.new()
@@ -57,6 +59,14 @@ func _enter_tree():
 	debuff_timer.wait_time = 1.0
 	debuff_timer.timeout.connect(_on_debuff_timer_timeout)
 	add_child(debuff_timer)
+	
+	health_bar.show_percentage = false
+	health_bar.show_behind_parent = false
+	health_bar.modulate = Color.GREEN
+	health_bar.max_value = MAX_HEALTH
+	health_bar.size = Vector2(36, 2)
+	health_bar.position = Vector2(-18, -23)
+	add_child(health_bar)
 
 func get_movement_vector():
 	var x_movement_vector = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
@@ -69,6 +79,7 @@ func _process(_delta):
 	var direction = movement_vector.normalized()
 	velocity = direction * speed
 	move_and_slide()
+	health_bar.value = health
 	if Input.is_action_just_pressed("spell_1"):
 		cast(0)
 	elif Input.is_action_just_pressed("spell_2"):
