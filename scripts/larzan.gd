@@ -10,7 +10,8 @@ var scare_timer = Timer.new()
 
 var scare_ray = RayCast2D.new()
 
-func _ready():
+func _enter_tree():
+	super._enter_tree()
 	spell_list = ["bite", "scare", "chase"]
 	cast_intervals = [10, 10, 5, 15]  # [10, 10, 5, 15]
 	rotations = [0, 1, 0, 2]

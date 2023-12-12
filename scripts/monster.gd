@@ -7,6 +7,7 @@ var health = 100
 
 var current_select = self
 var rotations = []
+var prompts = []
 var spell_list = []
 var cast_intervals = []
 var is_friend = false
@@ -16,8 +17,6 @@ var cast_timer = Timer.new()
 var current_rotations = 0
 var is_casting = false  # is casting spell or not
 var is_channeling = false  # is channeling a spell or not
-
-var hint = Label.new()
 
 
 func _ready():
@@ -29,6 +28,7 @@ func _enter_tree():
 	cast_timer.timeout.connect(_run_rotations)
 	add_child(cast_timer)
 	cast_timer.start(1)
+	
 	
 func get_movement_vector():
 	var x_movement_vector = 0.
