@@ -1,9 +1,15 @@
-[gd_scene load_steps=5 format=3 uid="uid://d00nox8hg6777"]
+[gd_scene load_steps=7 format=3 uid="uid://d00nox8hg6777"]
 
 [ext_resource type="Script" path="res://scripts/lazan.gd" id="1_frf1j"]
 [ext_resource type="PackedScene" uid="uid://wtxxeuxq3cu0" path="res://sprite/healer.tscn" id="2_bkumb"]
 [ext_resource type="PackedScene" uid="uid://474bfe0pmvol" path="res://sprite/wall.tscn" id="3_oudyf"]
 [ext_resource type="PackedScene" uid="uid://fsten6deydnf" path="res://sprite/larzan.tscn" id="4_765sj"]
+[ext_resource type="PackedScene" uid="uid://drcuhofgu2vb7" path="res://UI/HUD.tscn" id="5_8tkyr"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_g3nvw"]
+vertices = PackedVector2Array(240, 166, 255, 597, 6, 592, 6, 4, 1147, -2, 941, 86, 262, 599, 249, 417, 782, 408, 937, 492, 1145, 501, 1146, 602, 935, 380, 782, 167, 943, 209, 1149, 217, 1146, 377, 1143, 83)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(0, 3, 4, 5), PackedInt32Array(6, 7, 8, 9), PackedInt32Array(10, 11, 6, 9), PackedInt32Array(12, 9, 8, 13), PackedInt32Array(14, 15, 16, 12), PackedInt32Array(14, 12, 13, 5), PackedInt32Array(4, 17, 5), PackedInt32Array(0, 5, 13)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(6, 4, 6, 592, 255, 597, 240, 166, 782, 167, 782, 408, 249, 417, 262, 599, 1146, 602, 1145, 501, 937, 492, 935, 380, 1146, 377, 1149, 217, 943, 209, 941, 86, 1143, 83, 1147, -2)])
 
 [node name="Lazan" type="Node2D"]
 script = ExtResource("1_frf1j")
@@ -28,3 +34,16 @@ position = Vector2(986, 129)
 scale = Vector2(2, 2)
 collision_layer = 255
 collision_mask = 255
+
+[node name="HUD" parent="." instance=ExtResource("5_8tkyr")]
+position = Vector2(0, 8)
+
+[node name="Wall3" parent="." instance=ExtResource("3_oudyf")]
+position = Vector2(327, 236)
+scale = Vector2(5, 5)
+collision_layer = 255
+collision_mask = 255
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+position = Vector2(1, -1)
+navigation_polygon = SubResource("NavigationPolygon_g3nvw")

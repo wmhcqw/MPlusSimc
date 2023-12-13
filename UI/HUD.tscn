@@ -1,10 +1,134 @@
-[gd_scene format=3 uid="uid://drcuhofgu2vb7"]
+[gd_scene load_steps=5 format=3 uid="uid://drcuhofgu2vb7"]
+
+[ext_resource type="Script" path="res://UI/HUD.gd" id="1_8esru"]
+[ext_resource type="PackedScene" uid="uid://474bfe0pmvol" path="res://sprite/wall.tscn" id="1_bbnly"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_in1ha"]
+font_size = 35
+font_color = Color(1, 0.231373, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_qtulo"]
+font_size = 50
+font_color = Color(1, 0.835294, 0.0117647, 1)
 
 [node name="HUD" type="Node2D"]
+script = ExtResource("1_8esru")
 
 [node name="Label" type="Label" parent="."]
-offset_left = 389.0
-offset_top = 68.0
-offset_right = 640.0
-offset_bottom = 123.0
+offset_left = 370.0
+offset_top = 50.0
+offset_right = 719.0
+offset_bottom = 109.0
 text = "Boss Cast Hint"
+label_settings = SubResource("LabelSettings_in1ha")
+
+[node name="Player_Health" type="ProgressBar" parent="."]
+offset_left = 153.0
+offset_top = 588.0
+offset_right = 411.0
+offset_bottom = 644.0
+
+[node name="Target_Health" type="ProgressBar" parent="."]
+offset_left = 617.0
+offset_top = 590.0
+offset_right = 875.0
+offset_bottom = 646.0
+
+[node name="Wall" parent="." instance=ExtResource("1_bbnly")]
+z_index = -1
+position = Vector2(65, 610)
+scale = Vector2(20, 2)
+collision_layer = 255
+collision_mask = 255
+
+[node name="Wall2" parent="." instance=ExtResource("1_bbnly")]
+position = Vector2(5, -21)
+rotation = 1.5708
+scale = Vector2(10, 1)
+collision_layer = 255
+collision_mask = 255
+
+[node name="Wall3" parent="." instance=ExtResource("1_bbnly")]
+position = Vector2(43, -5)
+scale = Vector2(20, 1)
+collision_layer = 255
+collision_mask = 255
+
+[node name="Wall4" parent="." instance=ExtResource("1_bbnly")]
+position = Vector2(1173, -48)
+rotation = 1.5708
+scale = Vector2(10, 1)
+collision_layer = 255
+collision_mask = 255
+
+[node name="spell_1" type="Button" parent="."]
+offset_left = 24.0
+offset_top = 500.0
+offset_right = 118.0
+offset_bottom = 585.0
+
+[node name="Label" type="Label" parent="spell_1"]
+z_index = 2
+layout_mode = 0
+offset_right = 92.0
+offset_bottom = 85.0
+text = "0
+"
+label_settings = SubResource("LabelSettings_qtulo")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="spell_1"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 3.0
+offset_right = 93.0
+offset_bottom = 84.0
+
+[node name="spell_2" type="Button" parent="."]
+offset_left = 120.0
+offset_top = 500.0
+offset_right = 214.0
+offset_bottom = 585.0
+
+[node name="Label" type="Label" parent="spell_2"]
+z_index = 2
+layout_mode = 0
+offset_right = 92.0
+offset_bottom = 85.0
+text = "0
+"
+label_settings = SubResource("LabelSettings_qtulo")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="spell_2"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 3.0
+offset_right = 93.0
+offset_bottom = 84.0
+
+[node name="spell_3" type="Button" parent="."]
+offset_left = 216.0
+offset_top = 500.0
+offset_right = 310.0
+offset_bottom = 585.0
+
+[node name="Label" type="Label" parent="spell_3"]
+z_index = 2
+layout_mode = 0
+offset_right = 92.0
+offset_bottom = 85.0
+text = "0
+"
+label_settings = SubResource("LabelSettings_qtulo")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="spell_3"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 3.0
+offset_right = 93.0
+offset_bottom = 84.0

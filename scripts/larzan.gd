@@ -12,8 +12,10 @@ var scare_ray = RayCast2D.new()
 
 func _enter_tree():
 	super._enter_tree()
+	is_boss = true
 	spell_list = ["bite", "scare", "chase"]
-	cast_intervals = [10, 10, 5, 15]  # [10, 10, 5, 15]
+	prompts = ["莱赞使用了撕裂，坦克在流血！奶妈驱散！", "莱赞使用了恐惧，快找地方躲起来！", "莱赞即将开始追你，注意拉开距离！"]
+	cast_intervals = [10, 10, 5, 10]  # [10, 10, 5, 15]
 	rotations = [0, 1, 0, 2]
 	
 	chase_channeling_timer.autostart = false
@@ -72,7 +74,7 @@ func _process(_delta):
 				if node.role == "healer":
 					current_select = node
 	if is_chasing:
-		speed = 15
+		speed = 35
 		var distance = sqrt((position.x-current_select.position.x)**2 + (position.y-current_select.position.y)**2)
 		if distance <= 50:
 			current_select.health = -1
