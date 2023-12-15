@@ -2,7 +2,6 @@ extends Player
 
 class_name Healer
 
-
 func heal(obj: Player):
 	obj.health = min(obj.health + 10, obj.MAX_HEALTH)
 	print(obj.health)
@@ -21,6 +20,7 @@ func attack(obj: Player):
 		return true
 
 func _ready():
+	super._ready()
 	spell_list = ["heal", "disple", "attack"]
 	spell_cds = [0.5, 8, 0.5]
 	role = "healer"

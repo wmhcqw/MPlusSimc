@@ -3,12 +3,13 @@ extends CharacterBody2D
 class_name Player
 
 var role = "player"
-var speed = 100
+var speed = 50
 var is_player_control = true
+var death_note = ""
 
 const MAX_HEALTH = 100
 var health = 100
-var harmful = 1
+var harmful = 0
 
 var current_select = self
 var spell_list = []

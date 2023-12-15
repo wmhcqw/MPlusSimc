@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://3nusx74i386v"]
+
+[ext_resource type="Texture2D" uid="uid://b2bsy7p4peuwx" path="res://resources/sprite/volkar_totem.png" id="1_vouuj"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_x3ij6"]
+
+[node name="Volkar_env" type="CharacterBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_vouuj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_x3ij6")

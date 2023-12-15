@@ -2,7 +2,7 @@ extends Node2D
 
 var player_node: Player
 var target_node: Player
-var boss_node: Monster
+var boss_node: Boss
 
 @onready var hint: Label = $Label
 @onready var player_health_bar: ProgressBar = $Player_Health
@@ -16,6 +16,7 @@ var boss_node: Monster
 @onready var spell_slot_3: Button = $spell_3
 @onready var spell_slot_3_texture: TextureRect = $spell_3/TextureRect
 @onready var spell_slot_3_cd: Label = $spell_3/Label
+@onready var pause_menu: ColorRect = $PauseMenu
 
 var text_hide_timer = Timer.new()
 
@@ -36,6 +37,8 @@ func _show_hint_text():
 
 
 func _ready():
+	pause_menu.hide()
+	
 	spell_slot_1_texture.expand_mode = TextureRect.EXPAND_FIT_HEIGHT_PROPORTIONAL
 	spell_slot_2_texture.expand_mode = TextureRect.EXPAND_FIT_HEIGHT_PROPORTIONAL
 	spell_slot_3_texture.expand_mode = TextureRect.EXPAND_FIT_HEIGHT_PROPORTIONAL
@@ -55,7 +58,7 @@ func _ready():
 		if is_instance_of(node, Player):
 			if node.is_player_control:
 				player_node = node
-		if is_instance_of(node, Monster):
+		if is_instance_of(node, Boss):
 			if node.is_boss:
 				boss_node = node
 				
@@ -105,4 +108,16 @@ func _process(delta):
 		target_health_bar.value = target_node.health
 		target_health_bar.max_value = target_node.MAX_HEALTH
 		target_health_bar.show_percentage = false
-		
+	
+func _on_pause_pressed():
+	get_tree().paused = true
+	pause_menu.show()
+
+func _on_resume_pressed():
+	pause_menu.hide()
+	get_tree().paused = false
+
+func _on_restart_pressed():
+	pause_menu.hide()
+	get_tree().paused = false
+	get_tree().reload_current_scene()

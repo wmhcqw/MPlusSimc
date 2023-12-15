@@ -1,3 +1,51 @@
-[gd_scene format=3 uid="uid://bclyw0yv4bae1"]
+[gd_scene load_steps=8 format=3 uid="uid://bclyw0yv4bae1"]
+
+[ext_resource type="Script" path="res://scenes/volkar.gd" id="1_bdtak"]
+[ext_resource type="PackedScene" uid="uid://drcuhofgu2vb7" path="res://UI/HUD.tscn" id="1_tmtdu"]
+[ext_resource type="PackedScene" uid="uid://wtxxeuxq3cu0" path="res://sprite/healer.tscn" id="2_xjhoy"]
+[ext_resource type="PackedScene" uid="uid://bjs85mvtwswy" path="res://sprite/volkar_boss.tscn" id="4_uigr7"]
+[ext_resource type="PackedScene" uid="uid://biw06yqh603l5" path="res://sprite/volkar_dummy.tscn" id="5_7fid2"]
+[ext_resource type="PackedScene" uid="uid://3nusx74i386v" path="res://sprite/volkar_env.tscn" id="6_yc3d7"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_ji1wg"]
+vertices = PackedVector2Array(840, 469, 279, 464, 542, 63)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(542, 63, 279, 464, 840, 469)])
 
 [node name="Volkar" type="Node2D"]
+script = ExtResource("1_bdtak")
+
+[node name="Floor" type="Polygon2D" parent="."]
+position = Vector2(544, 24)
+color = Color(1, 1, 0.807843, 1)
+polygon = PackedVector2Array(-3, -1, -324, 466, 345, 469)
+
+[node name="Area2D" type="Area2D" parent="Floor"]
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Floor/Area2D"]
+polygon = PackedVector2Array(-3, -1, -324, 468, 344, 468)
+
+[node name="Healer" parent="." instance=ExtResource("2_xjhoy")]
+position = Vector2(727, 416)
+
+[node name="Volkar_boss" parent="." instance=ExtResource("4_uigr7")]
+position = Vector2(560, 312)
+
+[node name="Volkar_dummy" parent="." instance=ExtResource("5_7fid2")]
+position = Vector2(559, 373)
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+navigation_polygon = SubResource("NavigationPolygon_ji1wg")
+
+[node name="Volkar_env1" parent="." instance=ExtResource("6_yc3d7")]
+position = Vector2(543, 115)
+
+[node name="Volkar_env2" parent="." instance=ExtResource("6_yc3d7")]
+position = Vector2(290, 446)
+
+[node name="Volkar_env3" parent="." instance=ExtResource("6_yc3d7")]
+position = Vector2(821, 456)
+
+[node name="HUD" parent="." instance=ExtResource("1_tmtdu")]
